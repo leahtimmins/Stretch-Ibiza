@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.breadcrumbs li:not(:last-child) a::after {
+    content: "|";
+    padding-left: 8px;
+    padding-right:8px;
+}
