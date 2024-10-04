@@ -23,7 +23,7 @@ export async function fetchData(slug) {
   const storyblokApi = getStoryblokApi();
 
   let document = await storyblokApi.get(`cdn/stories/sessions/${slug}`, sbParams);
-  console.log('doc', document.data.story.content);
+
   return {
     props: {
       document

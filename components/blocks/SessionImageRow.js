@@ -3,7 +3,7 @@ import Container from "../elements/Container";
 import Image from 'next/image';
 
 const SessionImageRow = ({images}) => {
-    console.log('images!!', images)
+
     const count = images.length;
     return (
         <section className="py-8">

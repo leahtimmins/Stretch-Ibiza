@@ -20,7 +20,6 @@ const Hero = ({blok, position}) => {
 
     let logoSize = dimensions(logo.filename);
 
-    console.log('logo', logo);
     return (
         <section id={_uid} data-name={component} className={`${background} relative overflow-hidden`}>
 
