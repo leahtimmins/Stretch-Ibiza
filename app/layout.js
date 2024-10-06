@@ -1,6 +1,6 @@
 import localFont from 'next/font/local'
 import "./globals.css";
-import Footer from "@/components/blocks/Footer";
+// import Footer from "@/components/blocks/Footer";
 import Header from "@/components/blocks/Header";
 import { Suspense } from 'react';
 import { storyblokInit, apiPlugin} from "@storyblok/react/rsc"
@@ -56,7 +56,7 @@ export default async function RootLayout({ children }) {
             <SettingsProvider settings={settings}>
               <Header />
               <Suspense>{children}</Suspense>
-              <Footer />
+              {/* <Footer /> */}
             </SettingsProvider>
             
           </body>

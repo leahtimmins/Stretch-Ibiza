@@ -12,7 +12,7 @@ const LargeText = ({blok, position}) => {
 
     return (
         <section id={_uid} data-name={component} className={`${background}`}>
-            <div className="py-20 max-w-3xl mx-auto px-4">
+            <div className="py-20 max-w-6xl mx-auto px-4">
                     <p className="font-bold font-glacialBold text-2xl sm:text-4xl text-center">{text}</p>
             </div>
         </section>

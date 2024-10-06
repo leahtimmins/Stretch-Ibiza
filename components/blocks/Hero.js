@@ -6,8 +6,8 @@ import Image from 'next/image';
 
 const Hero = ({blok, position}) => {
     const {
-        link,
-        label,
+        // link,
+        // label,
         heading,
         description,
         background,
@@ -24,26 +24,26 @@ const Hero = ({blok, position}) => {
         <section id={_uid} data-name={component} className={`${background} relative overflow-hidden`}>
 
             <div className="relative bg-white">
-                <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:max-h-screen">
-                    <div className="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
-                    <div className="mx-auto max-w-2xl  mt-24 lg:mt-0 lg:mx-0">
+                <div className="mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:max-h-screen">
+                    <div className="px-6 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-24 xl:col-span-6">
+                    <div className="mx-auto max-w-2xl  mt-24 lg:mt-0 lg:mx-0 text-center">
                         {showLogo && logo.filename && (
                             <Image
-                                alt={logo.alt}
-                                src={`${logo.filename}?${new Date().getTime()}`}
+                                alt={logo.alt | "Stretch Ibiza logo"}
+                                src={`${logo.filename}`}
                                 width={logoSize.width}
                                 height={logoSize.height}
-                                className="h-24 w-24"
+                                className="h-56 w-56 mx-auto"
                             />
                         )}
-                        {heading && <h1 className="font-glacialBold mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">{heading}</h1>}
-                        {description && <p className="font-glacialRegular mt-6 text-lg md:mr-12 leading-8 text-gray-600">{description}</p>}
+                        {heading && <h1 className="font-glacialBold mt-10 text-2xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-5xl max-w-sm mx-auto">{heading}</h1>}
+                        {description && <p className="font-glacialRegular mt-6 text-lg max-w-lg mx-auto leading-8 text-gray-600">{description}</p>}
                         
-                        {link && (
+                        {/* {link && (
                                     <div className="mt-10 flex items-center gap-x-6">
                                         <LinkRef link={link} className="rounded-md px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-violet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-emerald-green">{label}</LinkRef>
                                     </div>
-                                )}
+                                )} */}
                     </div>
                     </div>
                     <div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">

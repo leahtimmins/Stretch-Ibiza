@@ -39,7 +39,7 @@ export default function HeaderNavigation({navigation, altNavigation}) {
                 <span className="sr-only">{settings.websiteName}</span>
                 <Image alt={settings.icon.alt} src={settings.icon.filename} width={logoSize.width} height={logoSize.height} className="h-16 w-auto" />
               </Link>
-              <div className="hidden lg:flex lg:gap-x-8 items-center">
+              <div className="flex gap-x-6 items-center">
                 {navigation.map((item, index) => {
                     const slug = item.link.story.full_slug == 'home' ? '/' : "/" + item.link.story.full_slug;
                     const navItem = {
@@ -54,7 +54,7 @@ export default function HeaderNavigation({navigation, altNavigation}) {
                 })}
               </div>
             </div>
-            <div className="flex flex-1 items-center justify-end gap-x-6 font-glacialBold">
+            {/* <div className="flex flex-1 items-center justify-end gap-x-6 font-glacialBold">
                 {altNavigation.map((altNav, altIndex) => {
                     const altNavItem = {
                         url: "/" + altNav.link.story.full_slug,
@@ -70,9 +70,9 @@ export default function HeaderNavigation({navigation, altNavigation}) {
                         </a>
                     )
                 })}
-            </div>
+            </div> */}
             
-            <div className="flex lg:hidden">
+            {/* <div className="flex lg:hidden">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
@@ -81,9 +81,9 @@ export default function HeaderNavigation({navigation, altNavigation}) {
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon aria-hidden="true" className="h-6 w-6" />
               </button>
-            </div>
+            </div> */}
           </nav>
-          <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+          {/* <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
             <div className="fixed inset-0 z-10" />
             <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-2 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center gap-x-6 justify-between">
@@ -140,7 +140,7 @@ export default function HeaderNavigation({navigation, altNavigation}) {
                 </div>
               </div>
             </DialogPanel>
-          </Dialog>
+          </Dialog> */}
         </div>
       )
 }
