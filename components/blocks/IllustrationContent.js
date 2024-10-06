@@ -29,7 +29,7 @@ const IllustrationContent = ({ blok, position }) => {
                                 <div className="flex flex-col space-y-2">
                                     {illustrations.map((illustrationImg, index) => {
                                         const illustationSize = dimensions(illustrationImg.filename);
-                                        return <Image key={index} src={illustrationImg.filename.split('?')[0]} alt={illustrationImg.alt || "illustration"} width={illustationSize.width} height={illustationSize.height} className="w-44 h-auto max-w-full" />
+                                        return <Image key={index} src={illustrationImg.filename.split('?')[0]} alt={illustrationImg.alt || "illustration"} width={illustationSize.width} height={illustationSize.height} className="h-44 w-auto max-w-full" />
                                     })}
                                 </div>
                             )}
