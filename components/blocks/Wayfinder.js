@@ -28,10 +28,10 @@ const Wayfinder = ({blok, position}) => {
     }
 
     return (
-        <section className={`overflow-hidden py-24 sm:py-32 ${sectionPadding === 'none' ? "py-0" : sectionPadding === 'small' ? "py-8 sm:py-12" : "py-24 sm:py-32" } ${background}`} id={_uid} data-name={component}>
+        <section className={`overflow-hidden ${sectionPadding === 'none' ? "py-0" : sectionPadding === 'small' ? "py-4 sm:py-8 md:py-12" : "py-12 smpy-24 md:py-32"} ${background}`} id={_uid} data-name={component}>
             <Container>
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                    <div className={`${setImageFirst ? "order-2 lg:pl-4 lg:pt-4" : "order-1 lg:pr-4 lg:pt-4"}`}>
+                    <div className={`${setImageFirst ? "sm:order-2 lg:pl-4 lg:pt-4" : "sm:order-1 lg:pr-4 lg:pt-4"}`}>
                         <div className="lg:max-w-lg">
                             {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold leading-7 mb-6">{heading}</h2>}
                             {description && <RichText story={description} className="mt-6 text-lg leading-8 text-gray-600" /> }
@@ -41,12 +41,12 @@ const Wayfinder = ({blok, position}) => {
                                     </div>
                             )} */}
                             {imageBelowText.filename && (
-                                <Image src={`${imageBelowText.filename}`} width={imageBelowTextSize.width} height={imageBelowTextSize.height} alt={image.alt} className="h-36 w-auto mx-auto" />
+                                <Image src={`${imageBelowText.filename}`} width={imageBelowTextSize.width} height={imageBelowTextSize.height} alt={image.alt} className="h-36 w-auto mx-auto my-12" />
                             )}
                         </div>
                     </div>
-                    <div className={`flex items-start justify-end ${setImageFirst ? "order-1" : "order-2"}`}>
-                        <ImageRef image={image} width={600} height={600} className="w-[48rem] max-w-none sm:w-[57rem]" />
+                    <div className={`flex items-start justify-end ${setImageFirst ? "sm:order-1" : "sm:order-2"}`}>
+                        <ImageRef image={image} width={600} height={600} className="w-full sm:w-[48rem] max-w-none md:w-[57rem]" />
                     </div>
                 </div>
             </Container>

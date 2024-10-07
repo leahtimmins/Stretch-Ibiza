@@ -23,13 +23,17 @@ const IllustrationContent = ({ blok, position }) => {
         <section id={_uid} data-name={component} className={`${background} py-24`}>
             <Container>
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                    <div className="grid grid-cols-[auto,1fr]">
+                    <div className="grid lg:grid-cols-[auto,1fr]">
                         <div>
                             {illustrations && (
-                                <div className="flex flex-col space-y-2">
+                                <div className="flex flex-row justify-center lg:flex-col space-y-2">
                                     {illustrations.map((illustrationImg, index) => {
                                         const illustationSize = dimensions(illustrationImg.filename);
-                                        return <Image key={index} src={illustrationImg.filename.split('?')[0]} alt={illustrationImg.alt || "illustration"} width={illustationSize.width} height={illustationSize.height} className="h-44 w-auto max-w-full" />
+                                        return (
+                                            <div key={index} className="p-8">
+                                                <Image src={illustrationImg.filename.split('?')[0]} alt={illustrationImg.alt || "illustration"} width={illustationSize.width} height={illustationSize.height} className="h-24 w-auto mx-auto" />
+                                            </div>
+                                        )
                                     })}
                                 </div>
                             )}
@@ -38,7 +42,7 @@ const IllustrationContent = ({ blok, position }) => {
                         <div className="relative">
                             <Image src={image.filename} alt={image.alt || "no alt content available"} width={imageSize.width} height={imageSize.height} className="w-auto" />
                             {floatingImage && (
-                                <div className="-mt-12 -mr-12 flex justify-end">
+                                <div className="-mt-12 mr-0 sm:-mr-12 flex justify-end">
                                     <Image src={floatingImage.filename} alt={floatingImage.alt || "Stretch Ibiza Icon"} width={floatingImageSize.width} height={floatingImageSize.height} className="h-28 w-auto" />
                                 </div>
                                 
