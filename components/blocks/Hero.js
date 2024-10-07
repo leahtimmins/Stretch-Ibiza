@@ -21,11 +21,11 @@ const Hero = ({blok, position}) => {
     let logoSize = dimensions(logo.filename);
 
     return  (
-        <section id={_uid} data-name={component} className={`relative py-12 ${background}`}>
+        <section id={_uid} data-name={component} className={`relative py-12 sm:py-24 min-h-screen flex items-center ${background}`}>
             <Container>
                 <div className="grid sm:grid-cols-2 gap-6">
                     <div className="flex justify-center items-center">
-                        <div className="py-12 sm:py-0">
+                        <div className="py-12 sm:py-0 sm:pr-24">
                             {/* Show the logo */}
                             {showLogo && logo.filename && (
                                 <Image
@@ -54,11 +54,11 @@ const Hero = ({blok, position}) => {
 
                     </div>
 
-                    <div className="relative">
+                    <div className="relative px-8">
                         {/* Image component with full control of height */}
                         <ImageRef
                             image={image}
-                            className="w-full lg:h-auto"
+                            className="w-full lg:h-auto "
                         />
                     </div>
                 </div>
