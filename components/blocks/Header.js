@@ -45,7 +45,8 @@ export async function fetchData() {
     return {
       props: {
         document: document || null
-      }
+      },
+      revalidate: 60,
     }
   }
 
