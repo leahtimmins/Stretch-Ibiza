@@ -41,16 +41,22 @@ export default function HeaderNavigation({navigation, altNavigation}) {
               </Link>
               <div className="flex gap-x-6 items-center">
                 {navigation.map((item, index) => {
-                    const slug = item.link.story.full_slug == 'home' ? '/' : "/" + item.link.story.full_slug;
-                    const navItem = {
+       
+                    const slug = item?.link?.story?.full_slug == 'home' ? '/' : "/" + item?.link?.story?.full_slug;
+  
+                    if(slug != '/undefined') {
+                      const navItem = {
                         url: slug,
                         label: item.label
+                      }
+                      return (
+                          <a key={index} href={navItem.url} className="text-md font-semibold leading-6 text-gray-900 font-glacialBold">
+                              {navItem.label}
+                          </a>
+                      )
                     }
-                    return (
-                        <a key={index} href={navItem.url} className="text-md font-semibold leading-6 text-gray-900 font-glacialBold">
-                            {navItem.label}
-                        </a>
-                    )
+                    return null;
+                    
                 })}
               </div>
             </div>

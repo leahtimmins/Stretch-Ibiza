@@ -9,26 +9,27 @@ import {
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function Home() {
-  const { props } = await fetchData();
-  return <StoryblokStory story={props.document.data.story} />;
+  const { storyblokData } = await fetchData();
+  return <StoryblokStory story={ storyblokData.data.story} />;
 }
 
 export async function fetchData() {
+  // Fetch Storyblok data
   let sbParams = { 
     version: "published",
     resolve_links: "url",
     cv: +new Date(),
-    // resolve_relations: 'grid_articles.articles', 
   };
 
   const storyblokApi = getStoryblokApi();
+  const storyblokData = await storyblokApi.get(`cdn/stories/home`, sbParams);
 
-  let document = await storyblokApi.get(`cdn/stories/home`, sbParams);
+  // Fetch Supabase data
+  
 
+  // Return both Storyblok with revalidation
   return {
-    props: {
-      document
-    },
-    revalidate: 60,
-  }
+    storyblokData,
+    revalidate: 60, // Revalidate every 60 seconds
+  };
 }

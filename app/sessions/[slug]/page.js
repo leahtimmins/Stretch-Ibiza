@@ -27,6 +27,7 @@ export async function fetchData(slug) {
   return {
     props: {
       document
-    }
+    },
+    revalidate: 60,
   }
 }

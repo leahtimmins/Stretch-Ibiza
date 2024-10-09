@@ -85,6 +85,7 @@ export async function fetchData() {
     return {
       props: {
         document
-      }
+      },
+      revalidate: 60,
     }
   }

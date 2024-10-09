@@ -8,8 +8,8 @@ import StoryblokStory from "@storyblok/react/story";
 
 export default async function Pages({ params }) {
     const { slug } = params;
-    const { props } = await fetchData(slug);
-    return <StoryblokStory story={props.document.data.story} />;
+    const { document } = await fetchData(slug);
+    return <StoryblokStory story={document.data.story} />;
 }
 
 export async function fetchData(slug) {
@@ -25,8 +25,7 @@ export async function fetchData(slug) {
   let document = await storyblokApi.get(`cdn/stories/pages/${slug}`, sbParams);
 
   return {
-    props: {
-      document
-    }
+    document,
+    revalidate: 60,
   }
 }
