@@ -45,7 +45,7 @@ const Wayfinder = ({blok, position}) => {
                             )}
                         </div>
                     </div>
-                    <div className={`flex items-start justify-end ${setImageFirst ? "sm:order-1" : "sm:order-2"}`}>
+                    <div className={`flex items-start ${setImageFirst ? "sm:order-1 justify-end" : "justify-start sm:order-2"}`}>
                         <ImageRef image={image} width={600} height={600} className="w-full sm:w-[48rem] max-w-none md:w-[57rem]" />
                     </div>
                 </div>
