@@ -15,18 +15,53 @@ import {
     NODE_IMAGE,
     NODE_UL,
     NODE_OL,
+    NODE_HEADING,
     NODE_PARAGRAPH,
     NODE_QUOTE
 } from 'storyblok-rich-text-react-renderer';
 import Link from 'next/link';
 import Image from 'next/image';
 import dimensions from '@/utils/dimensions';
+import React from 'react';
 
-const RichText = ({story}) => {
+// Helper function to handle heading nodes with recommended Tailwind classes
+const renderHeading = (level, children) => {
+    // Default Tailwind classes for each heading level
+    const headingClasses = {
+        2: 'text-3xl font-semibold mb-4',
+        3: 'text-2xl font-semibold mb-4',
+        4: 'text-xl font-semibold mb-4',
+        5: 'text-lg font-semibold mb-4',
+        6: 'text-base font-semibold mb-4',
+    };
+
+    // Combine the default classes with any custom class
+    const combinedClasses = `${headingClasses[level]}`;
+
+    // Dynamically render the correct heading tag
+    const HeadingTag = `h${level}`;
+
+    // Render the heading without extra span tags
+    return (
+        <HeadingTag className={`${combinedClasses}`}>
+            {children.map((child, index) => {
+                // If the child is a React element (like a span)
+                if (React.isValidElement(child)) {
+                    // Return its children directly (avoid wrapping)
+                    return child.props.children; // Only return the inner content
+                }
+                // If it's just a string or number, return it directly
+                return child; // Render string or number as is
+            })}
+        </HeadingTag>
+    );
+};
+
+const RichText = ({story, className}) => {
     // document is the rich text object you receive from Storyblok,
     // in the form { type: "doc", content: [ ... ] }
     return (
-        <>
+        <div className={className}>
         {render(story, {
         markResolvers: {
             [MARK_BOLD]: (children) => <b className={`mb-4 font-semibold text-lg`}>{children}</b>,
@@ -53,6 +88,11 @@ const RichText = ({story}) => {
             [MARK_ANCHOR]: (children, {id}) => <span id={id} className="underline">{children}</span>
         },
         nodeResolvers: {
+            [NODE_HEADING]: (children, props) => {
+                const { level } = props;
+                
+                return renderHeading(level, children);
+            },
             [NODE_PARAGRAPH]: (children) => {
                 // remove P tag from around image output
                 if (children !== null) {
@@ -101,7 +141,7 @@ const RichText = ({story}) => {
             }
         }
        
-    })}</>);
+    })}</div>);
 }
 
 export default RichText;

@@ -8,22 +8,23 @@ import Image from 'next/image';
 
 const TextImageGrid = ({blok, position}) => {
     const {
-        background,
+        backgroundColor,
         textColor,
         imageFirst,
+        alignText,
         image,
         richText,
         _uid
     } = blok;
 
     let size = dimensions(image.filename);
-
+    console.log('IF', imageFirst);
     return(
-        <div id={_uid} data-name="text-image-grid" className={clsx("relative py-8", background, textColor)}>
+        <div id={_uid} data-name="text-image-grid" className={clsx("relative py-8", backgroundColor, textColor)}>
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className={`${imageFirst == true ? "order-1 lg:order-2" : "order-1"}`}>
-                        {richText && <RichText story={richText} className="mt-6 text-lg leading-8 text-gray-600" />}
+                        {richText && <RichText story={richText} className={`mt-6 text-lg leading-8 text-gray-600 ${alignText}`} />}
                     </div>
                     <div className={`${imageFirst == true ? "order-2 lg:order-1" : "order-2"}`}>
 
