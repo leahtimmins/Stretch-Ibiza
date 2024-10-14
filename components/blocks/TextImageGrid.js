@@ -18,7 +18,7 @@ const TextImageGrid = ({blok, position}) => {
     } = blok;
 
     let size = dimensions(image.filename);
-    console.log('IF', imageFirst);
+
     return(
         <div id={_uid} data-name="text-image-grid" className={clsx("relative py-8", backgroundColor, textColor)}>
             <Container>
