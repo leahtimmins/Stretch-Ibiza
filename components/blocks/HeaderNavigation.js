@@ -35,7 +35,7 @@ export default function HeaderNavigation({navigation, altNavigation}) {
         <div className={`${scrollPosition > 20 ? "bg-base shadow-lg" : "bg-transparent"}`}>
           <nav aria-label="Global" className={`mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-2 px-4 lg:px-8`}>
             <div className="flex lg:flex-1">
-              <Link href="/" title={`${settings.websiteName} homepage`} className="-m-1.5 p-1.5 mr-8">
+              <Link href="/" title={`${settings.websiteName} homepage`} className="-m-1.5 p-1.5 mr-4 sm:mr-8">
                 <span className="sr-only">{settings.websiteName}</span>
                 <Image alt={settings.icon.alt} src={settings.icon.filename} width={logoSize.width} height={logoSize.height} className="h-16 w-auto" />
               </Link>
