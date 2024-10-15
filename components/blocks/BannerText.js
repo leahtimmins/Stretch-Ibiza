@@ -7,7 +7,8 @@ const BannerText = ({blok}) => {
         description,
         logo,
         bannerColor,
-        textColor
+        textColor,
+        showLogo
     } = blok;
 
     let imageBelowTextSize = dimensions(logo.filename);
@@ -15,14 +16,17 @@ const BannerText = ({blok}) => {
     return (
         <section className={`w-full`}>
             <div className="flex">
-                <div className={`w-full ${bannerColor}`}>
+                <div className={`w-full ${bannerColor} min-h-72`}>
                     <div className="flex justify-center items-center h-full max-w-lg text-center mx-auto py-24 sm:py-0">
                         {description && <p className={`text-glacialBold font-semibold text-3xl ${textColor}`}>{description}</p>}
                     </div>                
                 </div>
-                <div className="bg-white relative px-12 hidden sm:block">
-                    {logo && <Image src={logo.filename} width={imageBelowTextSize.width} height={imageBelowTextSize.height} alt="Stretch Ibiza logo" className="h-auto w-96 mx-auto sm:mx-0" />}
-                </div>
+                {showLogo && (
+                    <div className="bg-white relative px-12 hidden sm:block">
+                        {logo && <Image src={logo.filename} width={imageBelowTextSize.width} height={imageBelowTextSize.height} alt="Stretch Ibiza logo" className="h-auto w-96 mx-auto sm:mx-0" />}
+                    </div>
+                )}
+                
             </div>
         </section>
     )

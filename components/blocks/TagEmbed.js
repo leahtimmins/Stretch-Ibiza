@@ -1,12 +1,26 @@
 'use client';
-
+import { useState, useEffect } from 'react';
 import Script from 'next/script';
 import Container from '../elements/Container';
 
 const TagEmbed = ({blok}) => {
+    const [showEmbed, setShowEmbed] = useState(false);
     const {
         backgroundColor,
     } = blok;
+    
+
+    useEffect(() => {
+        // Check the domain on client-side
+        const domain = window.location.hostname;
+        if (domain.includes('vercel') || domain.includes('stretchibiza.com')) {
+            setShowEmbed(true);
+        }
+    }, []);
+
+    if (!showEmbed) {
+        return null; // Don't render anything if the domain check fails
+    }
 
     return (
         <>

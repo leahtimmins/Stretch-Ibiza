@@ -47,10 +47,12 @@ export default function HeaderNavigation({navigation, altNavigation}) {
                     if(slug != '/undefined') {
                       const navItem = {
                         url: slug,
+                        anchor: item.link?.anchor ? `#${item.link.anchor}` : "",
                         label: item.label
                       }
+                      
                       return (
-                          <a key={index} href={navItem.url} className="text-md font-semibold leading-6 text-gray-900 font-glacialBold">
+                          <a key={index} href={navItem.url + navItem.anchor} className="text-md font-semibold leading-6 text-gray-900 font-glacialBold">
                               {navItem.label}
                           </a>
                       )

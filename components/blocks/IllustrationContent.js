@@ -12,6 +12,7 @@ const IllustrationContent = ({ blok, position }) => {
         illustrations,
         floatingImage,
         background,
+        contentId,
         _uid,
         component
     } = blok;
@@ -20,7 +21,7 @@ const IllustrationContent = ({ blok, position }) => {
     let floatingImageSize = dimensions(floatingImage.filename);
 
     return (
-        <section id={_uid} data-name={component} className={`${background} py-24`}>
+        <section id={contentId ? contentId : _uid} data-name={component} className={`${background} py-24`}>
             <Container>
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div className="grid lg:grid-cols-[auto,1fr]">

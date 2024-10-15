@@ -18,7 +18,10 @@ const Hero = ({blok, position}) => {
         showLogo
     } = blok;
 
-    let logoSize = dimensions(logo.filename);
+    let logoSize;
+    if (showLogo && logo?.filename) {
+        logoSize = dimensions(logo.filename);
+    }
 
     return  (
         <section id={_uid} data-name={component} className={`relative py-12 sm:py-24 min-h-screen flex items-center ${background}`}>
@@ -27,7 +30,7 @@ const Hero = ({blok, position}) => {
                     <div className="flex justify-center items-center">
                         <div className="py-12 sm:py-0 sm:pr-24">
                             {/* Show the logo */}
-                            {showLogo && logo.filename && (
+                            {showLogo && logo?.filename && (
                                 <Image
                                     alt={logo.alt || "Stretch Ibiza logo"}
                                     src={`${logo.filename}`}
@@ -58,7 +61,8 @@ const Hero = ({blok, position}) => {
                         {/* Image component with full control of height */}
                         <ImageRef
                             image={image}
-                            className="w-full lg:h-auto "
+                            className="w-full lg:h-auto"
+                            alt={image.alt || "Hero image"}
                         />
                     </div>
                 </div>
