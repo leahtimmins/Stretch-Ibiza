@@ -32,7 +32,7 @@ export default async function Footer() {
             <div className="py-6 sm:py-16">
                 <Container>
                     <div className="sm:grid sm:grid-cols-4 sm:gap-2 sm:gap-12">
-                        <Image src={image.filename} alt={image.alt} width={imageSize.width} height={imageSize.height} className="h-16 w-auto" />
+                        <Image src={image.filename} alt={image.alt} width={imageSize.width} height={imageSize.height} className="h-16 w-auto mb-6" />
                         {columns.map((column) => (
                             <FooterColumn key={column._uid} columnData={column} />
                         ))}
