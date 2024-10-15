@@ -18,6 +18,7 @@ export default async function Footer() {
         columns,
         image,
         showBottomFooter,
+        showNewsletterCapture,
         background
     } = document;
 
@@ -38,7 +39,7 @@ export default async function Footer() {
                         ))}
                         <div className="col-span-1 mt-8 sm:mt-0">
                             <div className="grid gap-4 grid-cols-1 lg:grid-cols-1">
-                                <Newsletter className="lg:order-first"/>
+                                {showNewsletterCapture && (<Newsletter className="lg:order-first"/>)}
                                 <Social socialData={social}/>
                             </div>
                         </div>

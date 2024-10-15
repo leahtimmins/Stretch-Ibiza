@@ -6,6 +6,28 @@ import {
 
 import StoryblokStory from "@storyblok/react/story";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+ 
+  // fetch data
+  const { document } = await fetchData(params.slug);
+
+  const {
+    image,
+    title,
+    description,
+   
+  } = document.data.story.content;
+ 
+  return {
+    title: title,
+    image: image?.filename || "",
+    description: description,
+    openGraph: {
+      images: [image?.filename] || [],
+    },
+  }
+}
+
 export default async function Pages({ params }) {
     const { slug } = params;
     const { document } = await fetchData(slug);
