@@ -27,12 +27,12 @@ const IllustrationContent = ({ blok, position }) => {
                     <div className="grid lg:grid-cols-[auto,1fr]">
                         <div>
                             {illustrations && (
-                                <div className="flex flex-row justify-center lg:flex-col space-y-2">
+                                <div className="flex flex-row justify-around mb-4 lg:justify-center lg:flex-col space-y-2">
                                     {illustrations.map((illustrationImg, index) => {
                                         const illustationSize = dimensions(illustrationImg.filename);
                                         return (
-                                            <div key={index} className="p-8">
-                                                <Image src={illustrationImg.filename.split('?')[0]} alt={illustrationImg.alt || "illustration"} width={illustationSize.width} height={illustationSize.height} className="h-24 w-auto mx-auto" />
+                                            <div key={index} className="my-2 sm:p-8">
+                                                <Image src={illustrationImg.filename.split('?')[0]} alt={illustrationImg.alt || "illustration"} width={illustationSize.width} height={illustationSize.height} className="mx-auto h-16 w-auto" />
                                             </div>
                                         )
                                     })}

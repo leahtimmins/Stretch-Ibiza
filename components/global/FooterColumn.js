@@ -11,7 +11,7 @@ const FooterColumn = ({columnData, list, header, uid}) => {
         <div id={_uid} data-name="footer-column" className="mb-4 sm:mb-2">
             {/* {heading && <h4 className="mb-4 font-bold font-glacialBold">{heading}</h4>} */}
             {navigationList && (
-                <ul className="flex sm:grid">
+                <ul className="flex flex-wrap -mx-2 sm:mx-0 sm:grid">
                     {navigationList.map((navigation, index) => {
 
                         const slug = navigation?.link?.story?.full_slug == 'home' ? '/' : "/" + navigation?.link?.story?.full_slug;
@@ -24,7 +24,7 @@ const FooterColumn = ({columnData, list, header, uid}) => {
                         }
                         
                         return (
-                            <li key={index} className={`px-1 ${index == 0 ? "pl-0" : ""} sm:px-0 `}>
+                            <li key={index} className={`px-2 py-1 sm:px-0 `}>
                                 <Link href={navItem.url + navItem.anchor} className="text-md font-semibold leading-6 text-gray-900 font-glacialBold">
                                     {navItem.label}
                                 </Link>
