@@ -7,7 +7,7 @@ import SessionTitle from "./SessionTitle";
 import SessionImageRow from "./SessionImageRow";
 
 const Session = ({ blok }) => {
-    console.log('Session', blok);
+
     const {
         _uid,
         dates,
@@ -21,7 +21,6 @@ const Session = ({ blok }) => {
         // shortDescription
     } = blok;
 
-    console.log('body', blok.body[0].link);
 
     const featureImageSize = dimensions(images[0].filename);
 

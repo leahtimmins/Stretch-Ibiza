@@ -2,6 +2,8 @@ import Container from "@/components/elements/Container"
 import LinkRef from '@/components/elements/LinkRef';
 import ImageRef from "@/components/elements/ImageRef";
 import RichText from "@/components/elements/RichText";
+import dimensions from "@/utils/dimensions";
+import Image from 'next/image';
 
 const Wayfinder = ({blok, position}) => {
 
@@ -11,28 +13,41 @@ const Wayfinder = ({blok, position}) => {
         heading,
         description,
         background,
+        imageBelowText,
+        setImageFirst,
+        sectionPadding,
+        contentId,
         image,
         _uid,
         component
     } = blok;
 
+    let imageBelowTextSize = {};
+
+    if (imageBelowText.filename) {
+        imageBelowTextSize = dimensions(imageBelowText.filename);
+    }
+
     return (
-        <section className={`overflow-hidden py-24 sm:py-32 ${background}`} id={_uid} data-name={component}>
+        <section className={`overflow-hidden ${sectionPadding === 'none' ? "py-0" : sectionPadding === 'small' ? "py-4 sm:py-8 md:py-12" : "py-12 smpy-24 md:py-32"} ${background}`} id={contentId ? contentId : _uid} data-name={component}>
             <Container>
-            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                    <div className="lg:ml-auto lg:pl-4 lg:pt-4">
+                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                    <div className={`${setImageFirst ? "sm:order-2 lg:pl-4 lg:pt-4" : "sm:order-1 lg:pr-4 lg:pt-4"}`}>
                         <div className="lg:max-w-lg">
-                            {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold leading-7 mb-2">{heading}</h2>}
+                            {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold leading-7 mb-6">{heading}</h2>}
                             {description && <RichText story={description} className="mt-6 text-lg leading-8 text-gray-600" /> }
-                            {link && (
+                            {/* {link && (
                                     <div className="my-6">
                                         <LinkRef link={link} className="rounded-md bg-vi px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-emerald-green">{label}</LinkRef>
                                     </div>
+                            )} */}
+                            {imageBelowText.filename && (
+                                <Image src={`${imageBelowText.filename}`} width={imageBelowTextSize.width} height={imageBelowTextSize.height} alt={image.alt} className="h-36 w-auto mx-auto my-12" />
                             )}
                         </div>
                     </div>
-                    <div className="flex items-start justify-end lg:order-first">
-                        <ImageRef image={image} width={600} height={600} className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" />
+                    <div className={`flex items-start ${setImageFirst ? "sm:order-1 justify-end" : "justify-start sm:order-2"}`}>
+                        <ImageRef image={image} width={600} height={600} className="w-full sm:w-[48rem] max-w-none md:w-[57rem]" />
                     </div>
                 </div>
             </Container>
@@ -40,36 +55,6 @@ const Wayfinder = ({blok, position}) => {
         </section>
     )
 
-    return (
-        <section id={_uid} data-name={component} className={`${background}`}>
-            <div className="py-16">
-                <Container>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 block">
-                        <div className="flex items-center">
-                            <div>
-                                {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold mb-2">{heading}</h2>}
-                                {description && <RichText story={description} /> }
-                                {link && (
-                                    <div className="my-6">
-                                        <LinkRef link={link} className="font-glacialRegular border-2 py-2 px-4 uppercase bg-white">{label}</LinkRef>
-                                    </div>
-                                )}
-                            </div>
-                            
-                        </div>
-                        {image.filename && (
-                            <div className="block sm:flex sm:justify-end">
-                                <ImageRef image={image} width={400} height={400} className="max-h-full object-contain" />
-                            </div>
-                        )}
-                        
-                        
-                    </div>
-                    
-                </Container>
-            </div>
-        </section>
-    )
 }
 
 export default Wayfinder;

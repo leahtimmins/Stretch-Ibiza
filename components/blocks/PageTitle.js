@@ -6,23 +6,20 @@ import clsx from 'clsx';
 const PageTitle = ({blok, position}) => {
     const {
         background,
+        bannerColor,
         textColor,
-        description,
         heading,
         _uid
     } = blok;
 
-    const backgroundColor = background;
-
     return(
-        <section id={_uid} data-name="page-title" className={clsx("h-72 pt-20", background, textColor)}>
-            <div className="h-full flex items-center">
+        <section id={_uid} data-name="page-title" className={clsx("relative h-32", background, textColor)}>
+            <div className={`absolute top-0 left-0 bottom-0 w-full h-full max-w-5xl ${bannerColor}`}></div>
+            <div className="relative h-full flex items-center">
                 <Container>
-                    <div className="mx-auto text-center max-w-3xl">
-                        {heading && <h1 className="text-4xl font-bold">{heading}</h1>}
-                        {description && <p className="text-lg">{description}</p>}
+                    <div>
+                        {heading && <h1 className="text-5xl font-bold text-glacialBold">{heading}</h1>}
                     </div>
-                    
                 </Container>
             </div>
            

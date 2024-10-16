@@ -1,6 +1,6 @@
-const Container = ({children}) => {
+const Container = ({children, className}) => {
     return (
-        <div className="container mx-auto px-4 block">{children}</div>
+        <div className={`container mx-auto px-4 block relative ${className ? className : ""}`}>{children}</div>
     )
 }
 

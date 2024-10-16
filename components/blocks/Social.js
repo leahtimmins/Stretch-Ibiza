@@ -14,7 +14,7 @@ import 'react-social-icons/twitter';
 const Social = ({socialData}) => {
     return (
         <div className="mb-4 sm:mb-2">
-            <h4 className="mb-4 font-semibold">Social</h4>
+            <h4 className="mb-4 font-semibold">Follow Us</h4>
             <ul className="flex">
                 {socialData.map((social, index) => {
                     return (

@@ -28,7 +28,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   }
 }
 
-export default async function Pages({ params }) {
+export default async function Article({ params }) {
     const { slug } = params;
     const { document } = await fetchData(slug);
     return <StoryblokStory story={document.data.story} />;
@@ -44,7 +44,7 @@ export async function fetchData(slug) {
 
   const storyblokApi = getStoryblokApi();
 
-  let document = await storyblokApi.get(`cdn/stories/pages/${slug}`, sbParams);
+  let document = await storyblokApi.get(`cdn/stories/articles/${slug}`, sbParams);
 
   return {
     document,

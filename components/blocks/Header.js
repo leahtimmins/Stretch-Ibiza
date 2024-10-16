@@ -9,14 +9,14 @@ import HeaderNavigation from "./HeaderNavigation";
 
 export default async function Header() {
 
-    const { props } = await fetchData();
+    const { document } = await fetchData();
 
     const {
         navigation,
         uid,
         altNavigation,
         background
-    } = props.document;
+    } = document;
 
     return (
         <header id={uid} className="fixed w-full z-10">
@@ -30,7 +30,7 @@ export async function fetchData() {
       version: "published",
       resolve_links: "url",
       cv: +new Date(),
-      //resolve_relations: 'footer.legalLinks', 
+      resolve_relations: 'header.navItem', 
     };
     const storyblokApi = getStoryblokApi();
 
@@ -43,9 +43,8 @@ export async function fetchData() {
     };
 
     return {
-      props: {
-        document: document || null
-      }
+      document: document || null,
+      revalidate: 60,
     }
   }
 
