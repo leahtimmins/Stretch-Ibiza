@@ -9,8 +9,7 @@ const VideoCard = ({ video }) => {
     return (
         <>
             <div id={_uid} data-component="video-card" className="my-12">
-                <YouTubePlayer videoId={videoURL} />
-                {videoTitle && <p className="text-md">{videoTitle}</p>}
+                <YouTubePlayer videoId={videoURL} videoTitle={videoTitle} />
             </div>
         </>
     )
