@@ -3,6 +3,7 @@ import LinkRef from '@/components/elements/LinkRef';
 import ImageRef from "../elements/ImageRef";
 import dimensions from "@/utils/dimensions";
 import Image from 'next/image';
+import Newsletter from "./Newsletter";
 
 const Hero = ({blok, position}) => {
     const {
@@ -15,7 +16,10 @@ const Hero = ({blok, position}) => {
         _uid,
         component,
         logo,
-        showLogo
+        showLogo,
+        showNewsletter,
+        newsletterDescription,
+        newsletterBackground
     } = blok;
 
     let logoSize;
@@ -52,6 +56,13 @@ const Hero = ({blok, position}) => {
                                 <p className="font-glacialRegular mt-6 text-lg max-w-lg mx-auto leading-8 text-gray-600 text-center">
                                     {description}
                                 </p>
+                            )}
+
+                            {showNewsletter && (
+                                <div className="mt-6">
+                                    {newsletterDescription && <p className="mb-4 font-semibold">{newsletterDescription}</p>}
+                                    <Newsletter bgColor={newsletterBackground} />
+                                </div>
                             )}
                         </div>
 

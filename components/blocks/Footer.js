@@ -19,6 +19,8 @@ export default async function Footer() {
         image,
         showBottomFooter,
         showNewsletterCapture,
+        newsletterDescription,
+        newsletterBackground,
         background
     } = document;
 
@@ -39,7 +41,12 @@ export default async function Footer() {
                         ))}
                         <div className="col-span-1 mt-8 sm:mt-0">
                             <div className="grid gap-4 grid-cols-1 lg:grid-cols-1">
-                                {showNewsletterCapture && (<Newsletter className="lg:order-first"/>)}
+                                {showNewsletterCapture && (
+                                    <div className="lg:order-first">
+                                        {newsletterDescription && <p className="mb-4 font-semibold">{newsletterDescription}</p>}
+                                        <Newsletter bgColor={newsletterBackground}/>
+                                    </div>
+                                )}
                                 <Social socialData={social}/>
                             </div>
                         </div>
