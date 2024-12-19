@@ -4,11 +4,12 @@ const VideoCard = ({ video }) => {
     const {
         _uid,
         videoTitle,
-        videoURL
+        videoURL,
+        anchorIdentity
     } = video;
     return (
         <>
-            <div id={_uid} data-component="video-card" className="my-12">
+            <div id={anchorIdentity ? anchorIdentity : _uid} data-component="video-card" className="my-12">
                 <YouTubePlayer videoId={videoURL} videoTitle={videoTitle} />
             </div>
         </>

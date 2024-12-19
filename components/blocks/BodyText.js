@@ -8,12 +8,13 @@ const BodyText = ({blok, position}) => {
         _uid,
         component,
         background,
-        richText
+        richText,
+        anchorIdentity
     } = blok;
 
 
     return (
-        <section id={_uid} data-name={component} className={`${background}`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background}`}>
             <div className="py-16">
                 <Container>
                    {render(richText, {

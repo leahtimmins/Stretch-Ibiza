@@ -16,11 +16,12 @@ const EventDisplay = ({blok, position}) => {
         sessionHeading,
         sessionImage,
         showSessions,
-        _uid
+        _uid,
+        anchorIdentity
     } = blok;
 
     return (
-        <section id={_uid} data-name="event-display" className={`overflow-auto ${background} py-16`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name="event-display" className={`overflow-auto ${background} py-16`}>
             <Container>
                 {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold leading-7 mb-2 text-center">{heading}</h2>}
                 {description && <p className="text-lg text-center max-w-3xl mx-auto">{description}</p>}

@@ -14,12 +14,13 @@ const BookCallToAction = ({blok, position}) => {
         heading,
         description,
         link,
-        label
+        label,
+        anchorIdentity
     } = blok;
 
 
     return (
-        <section id={_uid} data-name={component} className={`${background}`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background}`}>
             <div className="py-16">
                 <Container>
                     <div className={`max-w-2xl mx-auto p-16 text-center border ${borderColor} ${cardBackground}`}>

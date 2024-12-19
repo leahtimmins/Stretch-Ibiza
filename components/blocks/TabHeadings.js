@@ -8,11 +8,12 @@ const TabHeadings = ({blok}) => {
         backgroundColor,
         headings,
         contentId,
-        _uid
+        _uid,
+        anchorIdentity
     } = blok;
 
     return (
-        <section id={`${contentId ? contentId : _uid}`} className={`pt-24 sm:pt-16 ${backgroundColor}`}>
+        <section id={`${contentId ? contentId : anchorIdentity ? anchorIdentity : _uid}`} className={`pt-24 sm:pt-16 ${backgroundColor}`}>
             <Container>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {headings.map((nestedBlok, index) => (

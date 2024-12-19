@@ -5,8 +5,13 @@ import { useForm } from 'react-hook-form';
 import { sendGTMEvent } from '@next/third-parties/google'
 import Container from '../elements/Container';
 
-function ContactForm() {
+function ContactForm({blok}) {
     const { register, handleSubmit } = useForm();
+
+    const {
+        _uid,
+        anchorIdentity
+    } = blok;
 
     function onSubmit(data) {
         sendGTMEvent({ event: 'formSubmitted', value: 'contact-form' })
@@ -15,7 +20,7 @@ function ContactForm() {
 
 
     return (
-        <section id="contactForm" className="py-12">
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-component="contactForm" className="py-12">
             <Container>
                 <div className="max-w-3xl mx-auto">
                     <form encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
