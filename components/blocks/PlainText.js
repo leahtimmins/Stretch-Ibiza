@@ -8,11 +8,13 @@ const PlainText = ({blok}) => {
         heading,
         richText,
         backgroundColor,
-        textAlignment
+        textAlignment,
+        anchorIdentity,
+        _uid
     } = blok;
 
     return (
-        <div className={`py-12 ${backgroundColor} ${textAlignment}`}>
+        <div id={anchorIdentity ? anchorIdentity : _uid} className={`py-12 ${backgroundColor} ${textAlignment}`}>
             <Container>
                 {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold leading-7 mb-2">{heading}</h2>}
                 <div className="max-w-5xl mx-auto">

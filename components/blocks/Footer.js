@@ -21,7 +21,9 @@ export default async function Footer() {
         showNewsletterCapture,
         newsletterDescription,
         newsletterBackground,
-        background
+        background,
+        _uid,
+        anchorIdentity
     } = document;
 
     let imageSize;
@@ -31,7 +33,7 @@ export default async function Footer() {
     }
 
     return (
-        <footer className={`border-t ${background}`}>
+        <footer id={anchorIdentity ? anchorIdentity : _uid} className={`border-t ${background}`}>
             <div className="py-6 sm:py-16">
                 <Container>
                     <div className="sm:grid sm:grid-cols-4 sm:gap-2 sm:gap-12">

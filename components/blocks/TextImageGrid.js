@@ -14,13 +14,14 @@ const TextImageGrid = ({blok, position}) => {
         alignText,
         image,
         richText,
-        _uid
+        _uid,
+        anchorIdentity
     } = blok;
 
     let size = dimensions(image.filename);
 
     return(
-        <div id={_uid} data-name="text-image-grid" className={clsx("relative py-8", backgroundColor, textColor)}>
+        <div id={anchorIdentity ? anchorIdentity : _uid} data-name="text-image-grid" className={clsx("relative py-8", backgroundColor, textColor)}>
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className={`${imageFirst == true ? "order-1 lg:order-2" : "order-1"}`}>

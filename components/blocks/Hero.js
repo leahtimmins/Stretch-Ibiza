@@ -19,7 +19,8 @@ const Hero = ({blok, position}) => {
         showLogo,
         showNewsletter,
         newsletterDescription,
-        newsletterBackground
+        newsletterBackground,
+        anchorIdentity
     } = blok;
 
     let logoSize;
@@ -28,7 +29,7 @@ const Hero = ({blok, position}) => {
     }
 
     return  (
-        <section id={_uid} data-name={component} className={`relative py-12 sm:py-24 min-h-screen flex items-center ${background}`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`relative py-12 sm:py-24 min-h-screen flex items-center ${background}`}>
             <Container>
                 <div className="grid sm:grid-cols-2 gap-6">
                     <div className="flex justify-center items-center">

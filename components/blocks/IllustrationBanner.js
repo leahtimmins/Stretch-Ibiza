@@ -6,13 +6,14 @@ const IllustrationBanner = ({blok, position}) => {
         background,
         image,
         _uid,
-        component
+        component,
+        anchorIdentity
     } = blok;
 
     const size = dimensions(image.filename);
 
     return (
-        <section id={_uid} data-name={component} className={`${background}`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background}`}>
             <Image src={image.filename} alt={image.alt} width={size.width} height={size.height} />
         </section>
     )

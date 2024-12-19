@@ -9,13 +9,14 @@ const FullWidthImage = ({blok, position}) => {
         image,
         background,
         _uid,
-        component
+        component,
+        anchorIdentity
     } = blok;
 
     let size = dimensions(image.filename);
 
     return (
-        <section id={_uid} data-name={component} className={`${background} py-20`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background} py-20`}>
             <Container>
                 <Image src={image.filename} width={size.width} height={size.height} alt={image.alt} className="w-full rounded-xl" />
             </Container>

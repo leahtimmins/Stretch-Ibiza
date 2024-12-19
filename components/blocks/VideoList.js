@@ -4,12 +4,13 @@ import VideoCard from "@/components/blocks/VideoCard";
 const VideoList = ({blok}) => {
     const {
         _uid,
-        videos
+        videos,
+        anchorIdentity
     } = blok;
 
     return (
         <>
-            <section id={`video-list_${_uid}`}>
+            <section id={anchorIdentity ? anchorIdentity : _uid} data-name="video-list">
                 <div className="py-16">
 
                     <Container>
