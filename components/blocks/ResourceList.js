@@ -5,8 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Container from '../elements/Container';
 
-const ResourceList = () => {
+const ResourceList = ({blok}) => {
     const [resources, setResources] = useState([]);
+
+    const {
+        _uid,
+        anchorIdentity
+    } = blok;
 
     useEffect(() => {
         // Fetch articles from Storyblok API
@@ -24,7 +29,7 @@ const ResourceList = () => {
     }, []);
 
     return (
-        <section className="w-full py-16">
+        <section id={anchorIdentity ? anchorIdentity : _uid} className="w-full py-16">
             <Container>
                 <div className="text-center">
                     <ul className="mt-4 space-y-4">

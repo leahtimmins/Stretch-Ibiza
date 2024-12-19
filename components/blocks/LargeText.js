@@ -5,11 +5,12 @@ const LargeText = ({blok, position}) => {
         text,
         background,
         _uid,
-        component
+        component,
+        anchorIdentity
     } = blok;
 
     return (
-        <section id={_uid} data-name={component} className={`${background}`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background}`}>
             <Container>
                 <div className="py-20 max-w-6xl mx-auto px-4">
                         <p className="font-bold font-glacialBold text-2xl sm:text-4xl text-center">{text}</p>

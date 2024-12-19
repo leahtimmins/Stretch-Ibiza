@@ -9,11 +9,12 @@ const PageTitle = ({blok, position}) => {
         bannerColor,
         textColor,
         heading,
-        _uid
+        _uid,
+        anchorIdentity
     } = blok;
 
     return(
-        <section id={_uid} data-name="page-title" className={clsx("relative h-32", background, textColor)}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} data-name="page-title" className={clsx("relative h-32", background, textColor)}>
             <div className={`absolute top-0 left-0 bottom-0 w-full h-full max-w-5xl ${bannerColor}`}></div>
             <div className="relative h-full flex items-center">
                 <Container>

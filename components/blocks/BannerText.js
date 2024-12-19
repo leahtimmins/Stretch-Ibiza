@@ -4,17 +4,19 @@ import Container from "../elements/Container";
 
 const BannerText = ({blok}) => {
     const {
+        _uid,
         description,
         logo,
         bannerColor,
         textColor,
-        showLogo
+        showLogo,
+        anchorIdentity
     } = blok;
 
     let imageBelowTextSize = dimensions(logo.filename);
 
     return (
-        <section className={`w-full`}>
+        <section id={anchorIdentity ? anchorIdentity : _uid} className={`w-full`}>
             <div className="flex">
                 <div className={`w-full ${bannerColor} min-h-72`}>
                     <div className="flex justify-center items-center h-full max-w-lg text-center mx-auto py-24 sm:py-0">

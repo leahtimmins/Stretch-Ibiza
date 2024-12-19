@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Container from '../elements/Container';
 
-const ArticleList = () => {
+const ArticleList = ({anchorIdentity}) => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const ArticleList = () => {
     }, []);
 
     return (
-        <section className="w-full py-16">
+        <section id={anchorIdentity} className="w-full py-16">
             <Container>
                 <div className="text-center">
                     <ul className="mt-4 space-y-4">
