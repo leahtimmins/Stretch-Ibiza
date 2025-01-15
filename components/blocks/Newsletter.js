@@ -43,7 +43,7 @@ const Newsletter = ({ className, bgColor }) => {
     };
 
     return (
-        <div className={`mb-2 w-full max-w-[320px] mx-auto ${className}`}>
+        <div className={`mb-2 w-full max-w-[320px] mx-auto ${className ? className : ""}`}>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email" className="sr-only block text-sm font-medium font-glacialRegular leading-6 text-gray-900">
                     Email address
