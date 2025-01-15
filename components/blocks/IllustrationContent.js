@@ -15,7 +15,8 @@ const IllustrationContent = ({ blok, position }) => {
         contentId,
         _uid,
         component,
-        anchorIdentity
+        anchorIdentity,
+        setImageFirstMobile
     } = blok;
 
     let imageSize = dimensions(image.filename);
@@ -25,7 +26,7 @@ const IllustrationContent = ({ blok, position }) => {
         <section id={contentId ? contentId : anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background} py-24`}>
             <Container>
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                    <div className="grid lg:grid-cols-[auto,1fr]">
+                    <div className={`${setImageFirstMobile ? "order-1" : "order-2"} sm:order-1 grid lg:grid-cols-[auto,1fr]`}>
                         <div>
                             {illustrations && (
                                 <div className="flex flex-row justify-around mb-4 lg:justify-center lg:flex-col space-y-2">
@@ -51,7 +52,7 @@ const IllustrationContent = ({ blok, position }) => {
                             )}
                         </div>
                     </div>
-                    <div className="lg:pl-4 lg:pt-4">
+                    <div className={`${setImageFirstMobile ? "order-2" : "order-1"} sm:order-2 lg:pl-4 lg:pt-4`}>
                         <div className="lg:max-w-lg">
                             {heading && <h2 className="text-2xl sm:text-4xl font-glacialBold font-semibold leading-7 mb-6">{heading}</h2>}
                             {render(description, {
