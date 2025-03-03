@@ -71,6 +71,7 @@ export default async function RootLayout({ children }) {
           className={`${glacialRegular.className} ${glacialItalic.className} ${glacialBold.className} antialiased w-full`}
         >
 
+
           <SettingsProvider settings={settings}>
             <Header />
             <Suspense>{children}</Suspense>
