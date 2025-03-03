@@ -65,9 +65,10 @@ export default async function RootLayout({ children }) {
                   m.async=1,
                   m.src=i,
                   p.parentNode.insertBefore(m,p)
-                }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/cb476cc18bd7456ecc9a0a5f4.js");`,
+                }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/7ea86ea1a0f0b85649fc5b2c8.js");`,
               }}
             />
+
             <SettingsProvider settings={settings}>
               <Header />
               <Suspense>{children}</Suspense>
