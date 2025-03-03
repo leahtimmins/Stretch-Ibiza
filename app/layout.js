@@ -7,6 +7,8 @@ import { storyblokInit, apiPlugin} from "@storyblok/react/rsc"
 import StoryblokProvider from "@/lib/StoryBlokProvider";
 import { fetchSettings } from "@/lib/StoryBlok";
 import { SettingsProvider } from "@/components/context/Settings";
+import Script from "next/script";
+
 
 const glacialBold = localFont({
   src: '../public/fonts/GlacialIndifference-Bold.otf',
@@ -53,6 +55,11 @@ export default async function RootLayout({ children }) {
           <body
             className={`${glacialRegular.className} ${glacialItalic.className} ${glacialBold.className} antialiased w-full`}
           >
+            <Script
+              id="mcjs"
+              strategy="lazyOnload"
+              src="https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/cb476cc18bd7456ecc9a0a5f4.js"
+            />
             <SettingsProvider settings={settings}>
               <Header />
               <Suspense>{children}</Suspense>
