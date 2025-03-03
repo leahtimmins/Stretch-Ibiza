@@ -57,8 +57,16 @@ export default async function RootLayout({ children }) {
           >
             <Script
               id="mcjs"
-              strategy="lazyOnload"
-              src="https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/cb476cc18bd7456ecc9a0a5f4.js"
+              strategy="beforeInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `!function(c,h,i,m,p){
+                  m=c.createElement(h),
+                  p=c.getElementsByTagName(h)[0],
+                  m.async=1,
+                  m.src=i,
+                  p.parentNode.insertBefore(m,p)
+                }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/cb476cc18bd7456ecc9a0a5f4.js");`,
+              }}
             />
             <SettingsProvider settings={settings}>
               <Header />
