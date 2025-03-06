@@ -30,7 +30,7 @@ const glacialRegular = localFont({
 
 export const metadata = {
   title: "Stretch Ibiza",
-  description: "Lorum Ipsum",
+  description: "",
 };
 
 
@@ -55,7 +55,7 @@ export default async function RootLayout({ children }) {
         <head>
           <Script
             id="mcjs"
-            strategy="afterInteractive" // Ensures the script loads after page hydration
+            strategy="beforeInteractive" // Ensures the script loads after page hydration
             dangerouslySetInnerHTML={{
               __html: `!function(c,h,i,m,p){
               m=c.createElement(h),
@@ -70,8 +70,6 @@ export default async function RootLayout({ children }) {
         <body
           className={`${glacialRegular.className} ${glacialItalic.className} ${glacialBold.className} antialiased w-full`}
         >
-
-
           <SettingsProvider settings={settings}>
             <Header />
             <Suspense>{children}</Suspense>
