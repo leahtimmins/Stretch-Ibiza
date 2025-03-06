@@ -53,17 +53,16 @@ export default async function RootLayout({ children }) {
 
       <html lang="en" className="w-screen">
         <head>
-          <Script
+          <script
             id="mcjs"
-            strategy="beforeInteractive" // Ensures the script loads after page hydration
             dangerouslySetInnerHTML={{
               __html: `!function(c,h,i,m,p){
-              m=c.createElement(h),
-              p=c.getElementsByTagName(h)[0],
-              m.async=1,
-              m.src=i,
-              p.parentNode.insertBefore(m,p)
-            }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/7ea86ea1a0f0b85649fc5b2c8.js");`,
+                m=c.createElement(h),
+                p=c.getElementsByTagName(h)[0],
+                m.async=1,
+                m.src=i,
+                p.parentNode.insertBefore(m,p)
+              }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/57d0c9b60c47da3fb219b36cd/7ea86ea1a0f0b85649fc5b2c8.js");`,
             }}
           />
         </head>
