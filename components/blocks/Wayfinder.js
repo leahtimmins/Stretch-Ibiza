@@ -14,6 +14,7 @@ const Wayfinder = ({blok, position}) => {
         description,
         background,
         imageBelowText,
+        imageBelowImage,
         setImageFirst,
         sectionPadding,
         contentId,
@@ -25,9 +26,14 @@ const Wayfinder = ({blok, position}) => {
     } = blok;
 
     let imageBelowTextSize = {};
+    let imageBelowImageSize = {};
 
-    if (imageBelowText.filename) {
-        imageBelowTextSize = dimensions(imageBelowText.filename);
+    if (imageBelowText?.filename) {
+        imageBelowTextSize = dimensions(imageBelowText?.filename);
+    }
+
+    if (imageBelowImage?.filename) {
+        imageBelowImageSize = dimensions(imageBelowImage?.filename);
     }
 
     return (
@@ -44,12 +50,21 @@ const Wayfinder = ({blok, position}) => {
                                     </div>
                             )} */}
                             {imageBelowText.filename && (
-                                <Image src={`${imageBelowText.filename}`} width={imageBelowTextSize.width} height={imageBelowTextSize.height} alt={image.alt} className="h-36 w-auto mx-auto my-12" />
+                                <Image src={`${imageBelowText?.filename}`} width={imageBelowTextSize?.width} height={imageBelowTextSize?.height} alt={imageBelowText?.alt} className="h-36 w-auto mx-auto my-12" />
                             )}
                         </div>
                     </div>
-                    <div className={`flex items-start ${setImageFirstMobile ? "order-1" : "order-2" } ${setImageFirst ? "sm:order-1 justify-end" : "justify-start sm:order-2"}`}>
-                        <ImageRef image={image} width={600} height={600} className="w-full sm:w-[48rem] max-w-none md:w-[57rem]" />
+                    <div className={`${setImageFirstMobile ? "order-1" : "order-2" } ${setImageFirst ? "sm:order-1 justify-end" : "justify-start sm:order-2"}`}>
+                     
+
+                            <ImageRef image={image} width={600} height={600} className="w-full sm:w-[48rem] max-w-full md:w-[57rem]" />
+                            {imageBelowImage?.filename && (
+                             
+                                <Image src={`${imageBelowImage?.filename}`} width={imageBelowImageSize?.width} height={imageBelowImageSize?.height} alt={imageBelowImage?.alt} className="h-36 w-auto mx-auto my-12" />
+                         
+                            )}
+
+                        
                     </div>
                 </div>
             </Container>
