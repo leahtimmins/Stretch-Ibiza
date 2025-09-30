@@ -31,7 +31,7 @@ const Wayfinder = ({blok, position}) => {
     }
 
     return (
-        <section className={`overflow-hidden ${sectionPadding === 'none' ? "py-0" : sectionPadding === 'small' ? "py-4 sm:py-8 md:py-12" : "py-12 smpy-24 md:py-32"} ${background}`} id={contentId ? contentId : anchorIdentity ? anchorIdentity : _uid} data-name={component}>
+        <section className={`overflow-hidden ${sectionPadding === 'none' ? "py-0" : sectionPadding === 'small' ? "py-4 sm:py-8 md:py-12" : "py-12 sm:py-24 md:py-32"} ${background}`} id={contentId ? contentId : anchorIdentity ? anchorIdentity : _uid} data-name={component}>
             <Container>
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div className={`${setImageFirstMobile ? "order-2" : "order-1"} ${setImageFirst ? "sm:order-2 lg:pl-4 lg:pt-4" : "sm:order-1 lg:pr-4 lg:pt-4"}`}>
