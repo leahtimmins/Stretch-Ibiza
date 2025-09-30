@@ -4,6 +4,8 @@ import ImageRef from "../elements/ImageRef";
 import dimensions from "@/utils/dimensions";
 import Image from 'next/image';
 import Newsletter from "./Newsletter";
+import ReactPlayer from 'react-player'
+
 
 const Hero = ({blok, position}) => {
     const {
@@ -20,7 +22,9 @@ const Hero = ({blok, position}) => {
         showNewsletter,
         newsletterDescription,
         newsletterBackground,
-        anchorIdentity
+        anchorIdentity,
+        videoUrl,
+        videoOrientation
     } = blok;
 
     let logoSize;
@@ -71,11 +75,20 @@ const Hero = ({blok, position}) => {
 
                     <div className="relative px-8">
                         {/* Image component with full control of height */}
-                        <ImageRef
-                            image={image}
-                            className="w-full lg:h-auto"
-                            alt={image.alt || "Hero image"}
-                        />
+                        {image && !videoUrl && (
+                            <ImageRef
+                                image={image}
+                                className="w-full lg:h-auto"
+                                alt={image.alt || "Hero image"}
+                            />
+                        )}
+                        
+                        {videoUrl && ( 
+                            <div className="w-full h-full flex justify-center items-center">
+                                <ReactPlayer src={videoUrl} controls="false" preload="true" style={{ width: `${videoOrientation == 'landscape' ? '100%' : 'auto'}`, height: `${videoOrientation == 'landscape' ? 'auto' : '100%'}`, aspectRatio: `${videoOrientation == 'landscape' ? '16/9' : '9/16'}` }} />
+                            </div>
+                        )}
+                        
                     </div>
                 </div>
             </Container>
