@@ -84,11 +84,12 @@ function ContactForm({blok}) {
                                 className="font-semibold text-glacialBold"
                             >
                                 <option value={'No interest selected'}>Select Option</option>
-                                <option value={'Physical therapy and Bodywork'}>Physical therapy and Bodywork</option>
+                                <option value={'Physical Therapy and Bodywork'}>Physical Therapy and Bodywork</option>
                                 <option value={'Breathwork'}>Breathwork</option>
                                 <option value={'Hypnosis'}>Hypnosis</option>
                                 <option value={'Yoga and Somatics'}>Yoga & Somatics</option>
                                 <option value={'Retreats'}>Retreats</option>
+                                <option value={'Online Resources'}>Online Resources</option>
                                 <option value={'Workshops and Classes'}>Workshops & Classes</option>
                                 <option value={'Work with me Online'}>Work with me Online</option>
                                 <option value={'Equipment hire'}>Equipment hire</option>
