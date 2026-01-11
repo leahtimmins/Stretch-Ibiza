@@ -1,24 +1,54 @@
 'use client'
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull'
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
 
-const VideoComponent = ({ videoId, videoTitle }) => {
+const VideoComponent = ({ videoUrl, videoTitle }) => {
     const player = useRef(null);
+    const containerRef = useRef(null);
 
     const handleClickFullscreen = () => {
-        if (screenfull.isEnabled) {
-            screenfull.request(player.current.wrapper);
+        if (screenfull.isEnabled && containerRef.current) {
+            screenfull.request(containerRef.current);
         }
     };
 
+    const processedVideoUrl = useMemo(() => {
+        if (!videoUrl) return videoUrl;
+
+        try {
+            const url = new URL(videoUrl);
+            const params = url.searchParams;
+
+            // Check and add modestbranding if missing
+            if (!params.has('modestbranding')) {
+                params.set('modestbranding', '1');
+            }
+
+            // Check and add playsinline if missing
+            if (!params.has('playsinline')) {
+                params.set('playsinline', '1');
+            }
+
+            return url.toString();
+        } catch (error) {
+            // If URL parsing fails, return original
+            console.error('Invalid video URL:', error);
+            return videoUrl;
+        }
+    }, [videoUrl]);
+
     return (
         <>
-            <div className="mb-1" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%' }}>
+            <div 
+                ref={containerRef}
+                className="mb-1" 
+                style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%' }}
+            >
                 <ReactPlayer
                     ref={player}
-                    url={`https://www.youtube.com/watch?fs=0&modestbranding=1&playsinline=1&rel=0&v=${videoId}`}
+                    src={processedVideoUrl}
                     width="100%"
                     height="100%"
                     style={{ position: 'absolute', top: 0, left: 0 }}
@@ -39,4 +69,3 @@ const VideoComponent = ({ videoId, videoTitle }) => {
 };
 
 export default VideoComponent;
-
