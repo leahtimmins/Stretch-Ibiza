@@ -29,7 +29,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default async function Pages({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const { document } = await fetchData(slug);
     return <StoryblokStory story={document.data.story} />;
 }
