@@ -7,9 +7,9 @@ import {
 import StoryblokStory from "@storyblok/react/story";
 
 export async function generateMetadata({ params, searchParams }, parent) {
- 
+ const { slug } = await params;
   // fetch data
-  const { document } = await fetchData(params.slug);
+  const { document } = await fetchData(slug);
 
   const {
     image,
