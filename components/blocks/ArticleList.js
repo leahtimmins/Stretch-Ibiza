@@ -41,7 +41,7 @@ const ArticleList = ({anchorIdentity}) => {
                                         className="my-4"
                                     >
                                         <div className="flex max-w-4xl mx-auto">
-                                            <Image src={article?.content?.articleThumbnail?.filename} width={640} height={640} className="h-40 w-40 mr-6" />
+                                            <Image src={article?.content?.articleThumbnail?.filename} alt={article?.content?.articleThumbnail?.alt || article?.name} width={640} height={640} className="h-40 w-40 mr-6" />
                                             <div className="text-left">
                                                 <div className="text-2xl text-black text-glacialBold underline mb-2">{article?.name}</div>
                                                 <div>
