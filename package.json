@@ -9,31 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "2.2.9",
+    "@headlessui/react": "2.2.10",
     "@heroicons/react": "2.2.0",
     "@next/third-parties": "15.5.12",
     "@storyblok/react": "3.0.15",
     "@tailwindcss/forms": "0.5.11",
-    "axios": "1.15.0",
+    "axios": "1.15.1",
     "clsx": "^2.1.1",
-    "cross-spawn": "7.0.5",
-    "glob": "10.5.0",
-    "next": "15.5.15",
+    "cross-spawn": "7.0.6",
+    "next": "15.5.18",
     "nodemailer": "7.0.11",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "7.71.1",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-hook-form": "7.75.0",
     "react-player": "^3.4.0",
-    "react-social-icons": "6.25.0",
+    "react-social-icons": "6.26.0",
     "screenfull": "^6.0.2",
     "sitemap": "8.0.2",
-    "storyblok-rich-text-react-renderer": "^2.9.2",
+    "storyblok-rich-text-react-renderer": "^3.0.1",
     "stream": "^0.0.3"
   },
   "devDependencies": {
-    "eslint": "10.0.0",
-    "eslint-config-next": "16.2.3",
-    "postcss": "8.5.6",
+    "eslint": "10.3.0",
+    "eslint-config-next": "16.2.6",
+    "postcss": "8.5.14",
     "tailwindcss": "3.4.19"
   }
 }
