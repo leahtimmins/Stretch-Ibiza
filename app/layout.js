@@ -3,7 +3,6 @@ import "./globals.css";
 import Footer from "@/components/blocks/Footer";
 import Header from "@/components/blocks/Header";
 import { Suspense } from 'react';
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc"
 import StoryblokProvider from "@/lib/StoryBlokProvider";
 import { fetchSettings } from "@/lib/StoryBlok";
 import { SettingsProvider } from "@/components/context/Settings";
@@ -35,15 +34,6 @@ export const metadata = {
 
 
 export const revalidate = 1;
-
-storyblokInit({
-  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-  use: [apiPlugin],
-  cache: {
-    clear: "auto",
-    type: "memory",
-  }
-})
 
 export default async function RootLayout({ children }) {
   const settings = await fetchSettings();
