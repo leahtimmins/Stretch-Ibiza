@@ -1,6 +1,69 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+
+@theme {
+  --color-dark: #0C0A3E;
+  --color-primary: #7B1E7A;
+  --color-secondary: #B33F62;
+  --color-alternate: #F9564F;
+  --color-base: #FDFBF1;
+  --color-tan: #efebe6;
+  --color-pastel-yellow: #f6fba3;
+  --color-lilac: #fbc5ff;
+  --color-ruby-red: #df3424;
+  --color-baby-blue: #b5eefd;
+  --color-emerald-green: #167d19;
+  --color-violet: #a26cef;
+  --color-tangerine: #f28500;
+  --color-decadent-blue: #2d41f6;
+  --color-mustard-yellow: #ffca0c;
+  --color-midnight-blue: #220a74;
+  --color-cassis-pink: #f65b5b;
+}
+
+/*
+  These reference CSS variables supplied at runtime (next/font className
+  variables on <body>, and --background/--foreground if ever defined), so
+  they're inlined directly into each utility instead of re-exported as new
+  theme variables — see https://tailwindcss.com/docs/theme#using-a-custom-value
+*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-glacialRegular: var(--font-glacialRegular);
+  --font-glacialItalic: var(--font-glacialItalic);
+  --font-glacialBold: var(--font-glacialBold);
+}
+
+/*
+  The `background`, `backgroundColor`, `border`, and `textColor` fields in
+  Storyblok store raw utility class names (e.g. "bg-primary") that are
+  interpolated into className at render time. Tailwind's automatic content
+  scanner can't see those, so they must be listed explicitly (this replaces
+  the v3 `safelist` config).
+*/
+@source inline("{bg,text}-{background,foreground,dark,primary,secondary,alternate,base,white,tan,pastel-yellow,lilac,ruby-red,baby-blue,emerald-green,violet,tangerine,decadent-blue,mustard-yellow,midnight-blue,cassis-pink}");
+@source inline("border-{background,foreground,dark,primary,secondary,alternate,base,white,tan}");
+@source inline("{mb-4,text-lg,grid,grid-cols-2,grid-rows-2,grid-flow-col,underline}");
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 .breadcrumbs li:not(:last-child) a::after {
     content: "|";

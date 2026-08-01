@@ -5,9 +5,10 @@ import { getStoryblokApi } from "@/lib/StoryBlok";
 import StoryblokStory from "@storyblok/react/story";
 
 export async function generateMetadata({ params, searchParams }, parent) {
- 
+  const { slug } = await params;
+
   // fetch data
-  const { document } = await fetchData(params.slug);
+  const { document } = await fetchData(slug);
 
   const {
     image,
@@ -27,7 +28,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default async function Article({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const { document } = await fetchData(slug);
     return <StoryblokStory story={document.data.story} />;
 }

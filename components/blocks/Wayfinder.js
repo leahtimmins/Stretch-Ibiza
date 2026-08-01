@@ -46,7 +46,7 @@ const Wayfinder = ({blok, position}) => {
                             {description && <RichText story={description} className="mt-6 text-lg leading-8 text-gray-600" /> }
                             {/* {link && (
                                     <div className="my-6">
-                                        <LinkRef link={link} className="rounded-md bg-vi px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-emerald-green">{label}</LinkRef>
+                                        <LinkRef link={link} className="rounded-md bg-vi px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-violet focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-emerald-green">{label}</LinkRef>
                                     </div>
                             )} */}
                             {imageBelowText.filename && (
@@ -57,7 +57,7 @@ const Wayfinder = ({blok, position}) => {
                     <div className={`${setImageFirstMobile ? "order-1" : "order-2" } ${setImageFirst ? "sm:order-1 justify-end" : "justify-start sm:order-2"}`}>
                      
 
-                            <ImageRef image={image} width={600} height={600} className="w-full sm:w-[48rem] max-w-full md:w-[57rem]" />
+                            <ImageRef image={image} width={600} height={600} className="w-full sm:w-3xl max-w-full md:w-228" />
                             {imageBelowImage?.filename && (
                              
                                 <Image src={`${imageBelowImage?.filename}`} width={imageBelowImageSize?.width} height={imageBelowImageSize?.height} alt={imageBelowImage?.alt} className="h-36 w-auto mx-auto my-12" />
