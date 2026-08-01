@@ -1,7 +1,7 @@
 import Container from "@/components/elements/Container";
 import FooterColumn from "@/components/global/FooterColumn";
 import Copyright from "@/components/elements/Copyright";
-import { getStoryblokApi } from "@storyblok/react/rsc";
+import { getStoryblokApi } from "@/lib/StoryBlok";
 import LinkRef from "@/components/elements/LinkRef";
 import Newsletter from "./Newsletter";
 import Social from "./Social";

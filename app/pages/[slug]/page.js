@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {
-  getStoryblokApi,
-} from "@storyblok/react/rsc";
+import { getStoryblokApi } from "@/lib/StoryBlok";
 
 import StoryblokStory from "@storyblok/react/story";
 
