@@ -5,6 +5,9 @@
   "engine": {
     "node": "22.13.0"
   },
+  "resolutions": {
+    "postcss": "8.5.25"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
