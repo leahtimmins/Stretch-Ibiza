@@ -27,7 +27,7 @@ const BookCallToAction = ({blok, position}) => {
                         {heading && <h4 className={`text-2xl text-glacialBold font-bold mb-4 ${textColor}`}>{heading}</h4>}
                         {description && <p className={`mb-4 ${textColor}`}>{description}</p>}
                         <div className="relative block pt-6">
-                            <Link href={linkLogic(link.story.full_slug)} className="inline-block rounded-md bg-indigo-600 px-3 py-2 text-md font-glacialBold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{label}</Link>
+                            <Link href={linkLogic(link.story.full_slug)} className="inline-block rounded-md bg-indigo-600 px-3 py-2 text-md font-glacialBold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{label}</Link>
                         </div>
                     </div>
                   

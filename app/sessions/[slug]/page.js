@@ -5,13 +5,13 @@ import { getStoryblokApi } from "@/lib/StoryBlok";
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function Session({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const { props } = await fetchData(slug);
     return <StoryblokStory story={props.document.data.story} />;
 }
 
 export async function fetchData(slug) {
-  let sbParams = { 
+  let sbParams = {
     version: "published",
     resolve_links: "url",
     cv: +new Date(),
