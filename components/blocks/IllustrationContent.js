@@ -26,7 +26,7 @@ const IllustrationContent = ({ blok, position }) => {
         <section id={contentId ? contentId : anchorIdentity ? anchorIdentity : _uid} data-name={component} className={`${background} py-24`}>
             <Container>
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                    <div className={`${setImageFirstMobile ? "order-1" : "order-2"} sm:order-1 grid lg:grid-cols-[auto,1fr]`}>
+                    <div className={`${setImageFirstMobile ? "order-1" : "order-2"} sm:order-1 grid lg:grid-cols-[auto_1fr]`}>
                         <div>
                             {illustrations && (
                                 <div className="flex flex-row justify-around mb-4 lg:justify-center lg:flex-col space-y-2">

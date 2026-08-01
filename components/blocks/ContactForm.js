@@ -35,7 +35,7 @@ function ContactForm({blok}) {
                                 id="name"
                                 type='text'
                                 placeholder='Your name'
-                                className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 font-semibold text-glacialBoldtext-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+                                className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 font-semibold text-glacialBoldtext-gray-700 outline-hidden focus:border-purple-500 focus:shadow-md'
                                 {...register('name', { required: true })}
                             />
                         </div>
@@ -50,7 +50,7 @@ function ContactForm({blok}) {
                                 type='email'
                                 id="email"
                                 placeholder='yourname@email.com'
-                                className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-semibold text-glacialBold text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+                                className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-semibold text-glacialBold text-gray-700 outline-hidden focus:border-purple-500 focus:shadow-md'
                                 {...register('email', { required: true })}
                             />
                         </div>
@@ -65,7 +65,7 @@ function ContactForm({blok}) {
                                 id="phone"
                                 type='phone'
                                 placeholder='Phone number'
-                                className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-semibold font-glacialBold text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+                                className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-semibold font-glacialBold text-gray-700 outline-hidden focus:border-purple-500 focus:shadow-md'
                                 {...register('phone', { required: true })}
                             />
                         </div>
@@ -105,13 +105,13 @@ function ContactForm({blok}) {
                             <textarea
                                 id="message"
                                 rows={4}
-                                className='w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-semibold text-glacialBold text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+                                className='w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-semibold text-glacialBold text-gray-700 outline-hidden focus:border-purple-500 focus:shadow-md'
                                 placeholder={'Your message'}
                                 {...register('message', { required: false })}
                             ></textarea>
                         </div>
                         <div>
-                            <button className={`hover:shadow-form rounded-md bg-mustard-yellow py-3 px-8 text-glacialBold font-bold uppercase text-black outline-none`}>
+                            <button className={`hover:shadow-form rounded-md bg-mustard-yellow py-3 px-8 text-glacialBold font-bold uppercase text-black outline-hidden`}>
                                 Submit
                             </button>
                         </div>
