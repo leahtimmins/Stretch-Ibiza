@@ -83,7 +83,7 @@ const UpcomingSessions = () => {
                             <div className="m-3 relative">
                                 <Link href={session.url} title={session.heading} className="underline font-glacialRegular">
                                     <Image src={session.image.filename} width={session.image.width} height={session.image.height} className="min-h-80 w-auto" />
-                                    <div className="absolute z-10 bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent text-white pb-2 pt-4 px-4">
+                                    <div className="absolute z-10 bottom-0 left-0 right-0 bg-linear-to-t from-gray-900 to-transparent text-white pb-2 pt-4 px-4">
                                         <h4 className="font-glacialBold font-semibold mb-2 text-lg">{session.heading}</h4>
                                     </div>
                                 </Link>
