@@ -2,9 +2,7 @@ import Container from "@/components/elements/Container";
 import Link from 'next/link';
 
 
-import {
-    getStoryblokApi,
-  } from "@storyblok/react/rsc";
+import { getStoryblokApi } from "@/lib/StoryBlok";
 import HeaderNavigation from "./HeaderNavigation";
 
 export default async function Header() {
